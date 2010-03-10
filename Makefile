@@ -1,5 +1,5 @@
 all:
-	gcc -Wall prctl.c -o prctl
+	gcc -ggdb3 -O0 -Wall prctl.c -o prctl
 
 clean:
 	rm prctl
