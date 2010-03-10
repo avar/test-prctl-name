@@ -1,0 +1,1 @@
+    perl -wle '$0 = "boobs"; system("ps h $$ ; ps hc $$");'
