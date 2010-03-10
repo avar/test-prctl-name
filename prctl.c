@@ -12,7 +12,8 @@ int main(const int argc, const char **argv) {
     printf("About to argv  name to '%s' with length '%d'\n", argv_name, strlen(argv_name));
     printf("About to prctl name to '%s' with length '%d'\n", prctl_name, strlen(prctl_name));
 
-    argv[0] = argv_name;
+    /* This won't work, the argv[0] needs to be space padded and I'm too lazy.., see perl's mg.c */
+    strncpy(argv[0], argv_name, strlen(argv[0]));
 
     if (prctl(PR_SET_NAME, (unsigned long) prctl_name, 0, 0, 0) != 0) {
         printf("Got error '%s' when setting name to '%s'\n", strerror(errno), prctl_name);
